@@ -21,20 +21,21 @@ public class TestProtobuf {
 
 	@Test
 	public void test() {
-		logger.debug("Write message to a file.");
 
+		// 1 : Create a Greeting object using the Protobuf builder.
 		Builder greetingBuilder = GreetingProtos.Greeting.newBuilder();
 		greetingBuilder.setGreeting(HELLO_WORLD);
-
 		Greeting greeting = greetingBuilder.build();
 
 		try {
-			// write
+
+			// 2 : Write the message into a file. Serialize the object.
+			logger.debug("Write message to a file.");
 			FileOutputStream output = new FileOutputStream(SER_FILE);
 			greeting.writeTo(output);
 			output.close();
 
-			// read
+			// 3 : Deserialize the object from the file.
 			Greeting greetingFromFile = Greeting.parseFrom(new FileInputStream(
 					SER_FILE));
 			logger.debug("We read this from the file {}", greetingFromFile);
