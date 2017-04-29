@@ -40,6 +40,7 @@ public class TestProtobuf {
 					SER_FILE));
 			logger.debug("We read this from the file {}", greetingFromFile);
 
+			// 4 : All is well.
 			assertEquals(HELLO_WORLD, greetingFromFile.getGreeting());
 
 		} catch (IOException e) {
