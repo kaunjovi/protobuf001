@@ -30,7 +30,6 @@ public class TestProtobuf {
 		try {
 
 			// 2 : Write the message into a file. Serialize the object.
-			logger.debug("Write message to a file.");
 			FileOutputStream output = new FileOutputStream(SER_FILE);
 			greeting.writeTo(output);
 			output.close();
@@ -40,7 +39,7 @@ public class TestProtobuf {
 					SER_FILE));
 			logger.debug("We read this from the file {}", greetingFromFile);
 
-			// 4 : All is well.
+			// 4 : All is well?
 			assertEquals(HELLO_WORLD, greetingFromFile.getGreeting());
 
 		} catch (IOException e) {
